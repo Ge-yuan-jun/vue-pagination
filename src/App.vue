@@ -1,34 +1,18 @@
 <template>
-  <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
+  <div class="page-bar">
+    <ul>
+      <li><a><</a></li>
+      <li><a>1</a></li>
+      <li class="active"><a>2</a></li>
+      <li title="向前5页" class="jump-prev"><a>···</a></li>
+      <li title="向后5页" class="jump-next"><a>···</a></li>
+      <li class="page-disabled"><a>></a></li>
+    </ul>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-
 export default {
-  components: {
-    Hello
-  }
 }
 </script>
 
@@ -44,21 +28,53 @@ body {
   height: 100%;
 }
 
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
+ul, li {
+  margin: 0;
+  padding: 0;
 }
 
-#app a {
-  color: #42b983;
+.page-bar li{
+  list-style: none;
+  display: inline-block;
+}
+.page-bar li:first-child>a {
+  margin-left: 0px
+}
+
+.page-bar a{
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
   text-decoration: none;
+  position: relative;
+  float: left;
+  height: 28px;
+  line-height: 28px;
+  min-width:28px;
+  text-align: center;
+  color: #aaa;
+  cursor: pointer;
+  -webkit-user-select: none;
+  margin-right: 8px;
+  font-size: 14px;
 }
-
-.logo {
-  width: 100px;
-  height: 100px
+.page-bar a:hover{
+  color: #2db7f5;
+  border-color: #2db7f5;
+}
+.page-bar .active a{
+  color: #fff;
+  cursor: default;
+  background-color: #2db7f5;
+  border-color: #2db7f5;
+}
+.page-bar .jump-next a, .page-bar .jump-prev a {
+  letter-spacing: -8px;
+  border:0;
+}
+.page-bar .page-disabled a{
+  cursor: not-allowed;
+  color: #eee;
+  border-color: #ddd;
 }
 </style>
