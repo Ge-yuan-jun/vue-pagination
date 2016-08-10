@@ -14,8 +14,7 @@
     export default {
         data () {
             return {
-                pageArr: [{}],
-                pageActive: 1 // 当前所选择的页码
+                pageArr: [{}]
             }
         },
         props: {
@@ -34,6 +33,10 @@
             btnNext: {
                 type: String,
                 default: '>'
+            },
+            pageActive: { // 当前所选择的页码
+                type: Number,
+                default: 1
             }
         },
         ready () {
