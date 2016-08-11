@@ -39,9 +39,11 @@
                 default: 1
             }
         },
-        ready () {
+        watch () {
+          totalPage () {
             this.pageArr = this.showPage(1)
-        },
+          }
+        }
         methods: {
             /**
              * 展示页数
