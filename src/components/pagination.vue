@@ -20,7 +20,7 @@
         props: {
             totalPage: {
                 type: Number,
-                default: 10
+                required: true,
             },
             pageInterval: {
                 type: Number,
